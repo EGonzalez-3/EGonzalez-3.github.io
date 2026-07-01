@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edith Gonzalez | CS499 ePortfolio</title>
+    <style>
+        /* * CSS VARIABLES 
+         * Default is Soft Dark Mode
+         */
+        :root {
+            --bg-color: #1e1e24;       /* Soft dark gray */
+            --surface-color: #2b2b36;  /* Slightly lighter gray */
+            --text-primary: #e0e0e0;   /* Soft white */
+            --text-secondary: #a9a9b3; /* Muted gray */
+            --accent-color: #5eead4;   /* Soft teal */
+            --nav-bg: #18181d;         /* Deep soft gray */
+            --btn-text: #121212;       /* Dark text for accent buttons */
+        }
+
+        /* * LIGHT MODE OVERRIDES
+         * Triggered when the body has the .light-mode class
+         */
+        body.light-mode {
+            --bg-color: #f4f4f9;       /* Soft off-white */
+            --surface-color: #ffffff;  /* Pure white */
+            --text-primary: #2d2d35;   /* Soft charcoal */
+            --text-secondary: #666666; /* Medium gray */
+            --accent-color: #0d9488;   /* Deep readable teal */
+            --nav-bg: #eaeaf2;         /* Soft light gray */
+            --btn-text: #ffffff;       /* Light text for accent buttons */
+        }
+
+        /* Base Styles with Smooth Transitions */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            transition: background-color 0.4s ease;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        } 
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--accent-color);   
+        }
+
+        /* Main content container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        section {
+            background-color: var(--surface-color);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.4s ease;
+        } 
+        
+        h1, h2, h3 {
+            color: var(--text-primary);
+            margin-top: 0;
+            transition: color 0.4s ease;
+        }
+        h1 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Links and buttons */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .artifact-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--btn-text);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .artifact-link:hover {
+            opacity: 0.85;
+            text-decoration: none;
+        }
+
+        /* --- NEW TOGGLE SWITCH STYLING --- */
+        .switch-container {
+            position: fixed;
+            top: 5px;
+            right: 20px;
+            z-index: 10002;
+        }
+        .switch input { 
+            display: none; 
+        }
+        .toggle-img-wrapper { 
+            position: relative; 
+            width: 70px; 
+            height: 70px; 
+        }
+        .toggle-img {
+            position: absolute; 
+            inset: 0;
+            width: 100%; 
+            height: auto; 
+            cursor: pointer;
+            transition: opacity .2s;
+        }
+        
+        /* Sun (light) image visible in default Dark Mode */
+        .toggle-img.light { opacity: 1; }
+        /* Moon (dark) image hidden in default Dark Mode */
+        .toggle-img.dark  { opacity: 0; }
+        
+        /* When toggled to Light Mode, crossfade the images */
+        body.light-mode .toggle-img.light { opacity: 0; }
+        body.light-mode .toggle-img.dark  { opacity: 1; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="switch-container">
+        <label class="switch" title="Toggle light/dark mode">
+            <input type="checkbox" id="theme-toggle" />
+            <div class="toggle-img-wrapper">
+                <img src="images/sun.png" alt="Light Mode" class="toggle-img light" />
+                <img src="images/moon.png" alt="Dark Mode" class="toggle-img dark" />
+            </div>
+        </label>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#code-review">Code Review</a></li>
+            <li><a href="#software-design">Software Design</a></li>
+            <li><a href="#algorithms">Algorithms</a></li>
+            <li><a href="#databases">Databases</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 50px;">
+              <h1 style="border:none; font-size: 2.5em; margin-bottom: 5px;">Edith Gonzalez</h1>
+              <p style="font-size: 1.2em; color: var(--text-secondary);">Computer Science ePortfolio | Software Engineering</p>
+         </header>
+
+        <section id="code-review">
+            <h2>Code Review</h2>
+            <p>This video presentation walks through the existing architecture of my legacy projects, identifies areas for structural and security improvements, and outlines my planned enhancements for the CS 499 Capstone.</p>
+            <a href="#" class="artifact-link" target="_blank">Watch Code Review Video</a>   
+        </section>
+
+        <section id="software-design">
+            <h2>Enhancement I: Software Design and Engineering</h2>
+            <p><strong>Artifact:</strong> Android Inventory Tracking Application (CS 360)</p>
+            <p><strong>Enhancement Focus:</strong> Refactoring the legacy application to strictly follow the MVVM architectural pattern to enforce the Single Responsibility Principle, and implementing Regex input validation to mitigate injection vulnerabilities.</p>
+            
+            <a href="LINK_TO_ORIGINAL_CS360_CODE" class="artifact-link">Original Code</a>
+            
+
+        <section id="algorithms">
+            <h2>Enhancement II: Algorithms and Data Structures</h2>
+            <p><strong>Artifact:</strong> C++ Search Application (CS 410)</p>
+            <p><strong>Enhancement Focus:</strong> Migrating a linear search mechanism to an optimized Hash Map for O(1) average time complexity, and refactoring memory management using modern smart pointers (std::unique_ptr).</p>
+            
+
+            <a href="LINK_TO_ORIGINAL_CS410_CODE" class="artifact-link">Original Code</a>
+        </section>
+
+        <section id="databases">
+            <h2>Enhancement III: Databases</h2>
+            <p><strong>Artifact:</strong> Client/Server MongoDB Dashboard (CS 340)</p>
+            <p><strong>Enhancement Focus:</strong> Enforcing strict schema validation and optimizing queries within the MongoDB backend to ensure data integrity and security.</p>
+            
+            <a href="LINK_TO_ORIGINAL_CS340_CODE" class="artifact-link">Original Code</a>
+
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Edith Gonzalez. Created for SNHU CS 499.
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Listen for the checkbox change
+        themeToggle.addEventListener('change', () => {
+            // If checked, turn on light mode. Otherwise, revert to default dark mode.
+            if (themeToggle.checked) {
+                body.classList.add('light-mode');
+            } else {
+                body.classList.remove('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>
