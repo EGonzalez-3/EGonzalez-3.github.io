@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+<!-- This is the SMS notifications title.-->
+    <TextView
+        android:id="@+id/tv_sms_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sms_notifications"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!-- This is the SMS Notifications description. It allows the person to read the explanation
+     for what the notification will do. -->
+
+    <!-- This is the SMS toggle switch that allows the user to be able
+         to turn the SMS notifications on or off. -->
+    <TextView
+        android:id="@+id/tv_sms_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/to_keep_your_inventory_accurate_we_can_send_you_an_sms_alert_when_items_fall_below_a_certain_threshold"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sms_title" />
+
+    <Switch
+        android:id="@+id/switch_sms_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/enable_sms_alerts"
+        android:textSize="18sp"
+        android:minHeight="48dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_sms_description"
+        tools:ignore="UseSwitchCompatOrMaterialXml,VisualLintButtonSize" />
+
+<!-- This is the SMS notifications status message which allows the user to see
+     whether or not they have the permissions enabled.-->
+    <TextView
+        android:id="@+id/tv_permission_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/status_permission_not_yet_granted"
+        android:textColor="#D32F2F"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/switch_sms_toggle"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

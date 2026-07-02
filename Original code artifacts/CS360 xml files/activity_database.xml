@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+<!--   This is the Screen Title. We add a top margin to prevent the
+    phone's status bar or notch from clipping the text. -->
+    <TextView
+        android:id="@+id/tv_database_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/inventory_items"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--   This is the RecyclerView that displays our inventory grid.
+    It is constrained between the title and the input bar. -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/inventory_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/layout_add_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_database_title"
+        tools:listitem="@layout/grid_item" />
+
+<!-- This is the bottom input bar. We use 0dp width with weights to ensure
+    it fits all screen sizes without triggering "Too Wide" errors.-->
+    <LinearLayout
+        android:id="@+id/layout_add_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/et_new_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:autofillHints="name"
+            android:contentDescription="@string/item_name2"
+            android:hint="@string/item_name"
+            android:inputType="textCapWords"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            tools:ignore="ContentDescription,VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/et_new_item_qty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:autofillHints="none"
+            android:contentDescription="@string/qty1"
+            android:hint="@string/qty"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            tools:ignore="ContentDescription,VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/btn_add_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:minHeight="48dp"
+            android:text="@string/add" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
